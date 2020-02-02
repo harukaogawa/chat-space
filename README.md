@@ -41,7 +41,8 @@ Things you may want to cover:
 |group_id|integer|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :group
+- belongs_to :has many message
+- belongs_to :has many users
 
 ## usersテーブル
 |Column|Type|Options|
@@ -49,7 +50,8 @@ Things you may want to cover:
 |user_id|integer|null: false, foreign_key: true|]
 
 ### Association
-- belongs_to :user
+- belongs_to :has many message
+- belongs_to :has many groups
 
 ## messageテーブル
 |Column|Type|Options|
@@ -57,4 +59,5 @@ Things you may want to cover:
 |text: text| |image: text|
 
 ### Association
-- belongs_to :message
+- belongs_to :group
+- bolongs_to :user
