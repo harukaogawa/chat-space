@@ -23,35 +23,36 @@ Things you may want to cover:
 ## groups_usersテーブル
 
 |Column|Type|Options|
-|------|----|-------|
-|user|integer|null: false, foreign_key: true|
-|group|integer|null: false, foreign_key: true|
+|----_--|----|-------|
+|user_id|references|null: false, foreign_key: true|
+|group_id|references|null: false, foreign_key: true|
 
 ### Association
-- references :group
-- references :user
+- belongs_to :group
+- bolongs_to :user
 
 
 ## groupsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
+|name|integer|null: false, foreign_key: true|
 
 ### Association
-- has many :message
-- has many :users
+- has_many :message
+- has_many :users, throgh: grops_users
+- has_many :groups_users
 
 
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|message|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|name|integer|null: false, foreign_key: true|
 
 ### Association
-- has many :message
-- has many :groups
+- has_many :message
+- has_many :groups, throgh: grops_users
+- has_manu :groups_users
 
 
 ## messageテーブル
