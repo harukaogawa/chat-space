@@ -19,45 +19,48 @@ Things you may want to cover:
 
 * Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
 
 ## groups_usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
+|user|integer|null: false, foreign_key: true|
+|group|integer|null: false, foreign_key: true|
+
+### Association
+- references :group
+- references :user
+
+
+## groupsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+
+### Association
+- has many :message
+- has many :users
+
+
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|message|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
+
+### Association
+- has many :message
+- has many :groups
+
+
+## messageテーブル
+|Column|Type|Options|
+|------|----|-------|
+|text: text| |image: text| 
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
 - belongs_to :user
-
-## groupsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|group_id|integer|null: false, foreign_key: true|
-
-### Association
-- belongs_to :has many message
-- belongs_to :has many users
-
-## usersテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_id|integer|null: false, foreign_key: true|]
-
-### Association
-- belongs_to :has many message
-- belongs_to :has many groups
-
-## messageテーブル
-|Column|Type|Options|
-|------|----|-------|
-|text: text| |image: text|
-
-### Association
-- belongs_to :group
-- bolongs_to :user
