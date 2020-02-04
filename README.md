@@ -36,7 +36,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|name|integer|string|
+|name|string|null: false|
 
 ### Association
 - has_many :messages
@@ -47,7 +47,7 @@ Things you may want to cover:
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|integer|string|
+|name|string|null: false|
 
 ### Association
 - has_many :messages
