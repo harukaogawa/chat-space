@@ -36,10 +36,10 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|name|integer|null: false, foreign_key: true|
+|name|integer|string|
 
 ### Association
-- has_many :message
+- has_many :messages
 - has_many :users, throgh: grops_users
 - has_many :groups_users
 
@@ -47,10 +47,10 @@ Things you may want to cover:
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|integer|null: false, foreign_key: true|
+|name|integer|string|
 
 ### Association
-- has_many :message
+- has_many :messages
 - has_many :groups, throgh: grops_users
 - has_manu :groups_users
 
