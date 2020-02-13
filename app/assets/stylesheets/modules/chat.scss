@@ -90,13 +90,13 @@
     padding: 20px 40px;
     background-color: #ddd;
 
-    form{
+    .new_message{
       display: flex;
       
       .input-box{
-        display: flex;
         width: 100%;
         position: relative;
+
         &__text{
           height: 50px;
           width: 100%;
