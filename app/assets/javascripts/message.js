@@ -3,35 +3,35 @@ $(function(){
    if ( message.image ) {
      var html =
       `<div class="message" data-message-id=${message.id}>
-         <div class="upper-message">
-           <div class="upper-message__user-name">
+         <div class="message__upper-infoe">
+           <div class="message__upper-info__talker">
              ${message.user_name}
            </div>
-           <div class="upper-message__date">
-             ${message.date}
+           <div class="message__upper-info__date">
+             ${message.created_at}
            </div>
          </div>
-         <div class="lower-message">
-           <p class="lower-message__content">
+         <div class="message__text">
+           <p class="message__text__content">
              ${message.content}
            </p>
          </div>
          <img src=${message.image} >
        </div>`
-     return html;
+      return html;
    } else {
      var html =
       `<div class="message" data-message-id=${message.id}>
-         <div class="upper-message">
-           <div class="upper-message__user-name">
+         <div class="message__upper-info">
+           <div class="message__upper-info__talker">
              ${message.user_name}
            </div>
-           <div class="upper-message__date">
-             ${message.date}
+           <div class="message__upper-info__date">
+             ${message.created_at}
            </div>
          </div>
-         <div class="lower-message">
-           <p class="lower-message__content">
+         <div class="message__text">
+           <p class="message__text__content">
              ${message.content}
            </p>
          </div>
@@ -55,6 +55,11 @@ $('#new_message').on('submit', function(e){
     var html = buildHTML(data);
     $('.messages').append(html);      
     $('form')[0].reset();
+    $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
   })
+  .always(function(data){
+    $('.submit-btn').prop('disabled', false);　//ここで解除している
+  })
+  
 })
 });
