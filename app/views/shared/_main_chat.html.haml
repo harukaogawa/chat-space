@@ -3,12 +3,14 @@
     .main-header__left-box
       .main-header__left-box__current-group
         %p.group-name
-          h
+          = @group.name
         .member
           .member__member-list
             Member :
           .member__member-list__member
-            h
+            -@group.users.each do |user|
+              = user.name
+
     .main-header__edit-btn
       = link_to "Edit", edit_group_path(@group)
         
