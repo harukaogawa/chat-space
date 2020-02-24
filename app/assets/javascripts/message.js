@@ -48,7 +48,7 @@ $(function(){
           </div>
         </div>
         <div class="message__text">
-          <img src="&{message.image}" class="message__text__content" >
+          <img src="${message.image}" class="message__text__content" >
         </div>
       </div>`
     };
@@ -69,6 +69,7 @@ $(function(){
     contentType: false
   })
     .done(function(data){
+      console.log(data)
       var html = buildHTML(data);
       $('.messages').append(html);      
       $('form')[0].reset();
